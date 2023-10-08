@@ -1,0 +1,149 @@
+:root {
+  --text-color-link: rgba(255, 255, 255, 0.7);
+  --text-color-link-hover: white;
+  --text-color-black: black;
+  --text-color-white: white;
+  --text-color-hover: white;
+  --buttonColor: white;
+  --buttonBackgroundColor: white;
+  --green: green;
+  --red: tomato;
+  --primary: #007bff;
+  --primary-bg-hover: #005dc1;
+  --activePage: rgb(0, 77, 0);
+  --scroll-color: rgba(0, 128, 0, 0.76);
+  --scroll-color-border: rgba(0, 58, 0, 0.148);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  font-size: 16px;
+}
+
+/* отключение сдвига полосы прокрутки */
+html { 
+  margin-right: calc(-1 * (100vw - 100%));
+  overflow-x: hidden;
+}
+
+/* Работает в Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scroll-color) var(--scroll-color-border);
+}
+
+/* Работает в Chrome, Edge и Safari */
+*::-webkit-scrollbar {
+  width: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(0, 128, 0, 0.386);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-color);
+  border-radius: 8px;
+  /* border: 3px solid var(--scroll-color-border); */
+}
+
+button{
+  height: 100%;
+  width: 100%;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.25s ease-in-out, color 0.35s ease-in-out;
+}
+
+.buttonOutline {
+  background-color: var(--buttonBackgroundColor);
+}
+
+.buttonOutline:hover {
+  color: var(--buttonColor);
+}
+
+.buttonSolid {
+  background-color: var(--primary);
+  border: 0;
+}
+
+.btnSizeS {
+  padding: 5px 10px;
+}
+.btnSizeM {
+  padding: 8px 15px;
+}
+.btnSizeL {
+  padding: 10px 20px;
+}
+.btnSizeXL {
+  padding: 12px 25px;
+}
+
+.success {
+  color: var(--green);
+  border: 1px solid var(--green);
+}
+
+.success:hover {
+  background-color: var(--green);
+}
+
+.danger {
+  color: var(--red);
+  border: 1px solid var(--red);
+}
+
+.danger:hover {
+  background-color: var(--red);
+}
+
+.primary {
+  color: var(--text-color-white);
+}
+
+.primary:hover {
+  background-color: var(--primary-bg-hover);
+}
+
+/* loader */
+.loader {
+  width: 100%;
+  height: 4.8px;
+  display: inline-block;
+  position: relative;
+  background: rgba(0, 0, 0, 0.075);
+  /* border: 1px solid rgba(0, 0, 0, 0.073); */
+  overflow: hidden;
+}
+.loader::after {
+  content: '';
+  width: 192px;
+  height: 4.8px;
+  background: var(--green);
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  animation: animloader 2s linear infinite;
+}
+
+@keyframes animloader {
+  0% {
+    left: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    left: 100%;
+    transform: translateX(0%);
+  }
+}
+    
+/* loader end */

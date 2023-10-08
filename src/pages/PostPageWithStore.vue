@@ -20,7 +20,35 @@
   </div>
 </template>
 
-<script setup>
+<!-- Options API -->
+<script>
+import PostForm from "@/components/PostForm.vue";
+import PostList from "@/components/PostList.vue";
+import { usePostsStore } from "@/store/posts";
+
+export default {
+  data() {
+    return {
+      postsStore: usePostsStore(),
+    };
+  },
+  methods: {
+    fetchPosts() {
+      this.postsStore.fetchPosts();
+    },
+  },
+  components: {
+    PostForm,
+    PostList,
+  },
+  mounted() {
+    this.fetchPosts();
+  },
+};
+</script>
+
+<!-- Composition API -->
+<!-- <script setup>
 import PostForm from "@/components/PostForm.vue";
 import PostList from "@/components/PostList.vue";
 import { usePostsStore } from "@/store/posts";
@@ -28,7 +56,8 @@ import { usePostsStore } from "@/store/posts";
 const postsStore = usePostsStore();
 postsStore.fetchPosts();
 
-</script>
+</script> -->
+
 
 <style scoped>
 .app {
